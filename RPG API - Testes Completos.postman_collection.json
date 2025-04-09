@@ -1,0 +1,404 @@
+{
+	"info": {
+		"_postman_id": "847f5d11-ce1d-43a2-8977-a7f7d666d912",
+		"name": "RPG API - Testes Completos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39551302"
+	},
+	"item": [
+		{
+			"name": "Criar Personagem Válido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Cabeça De Batata\",\n  \"nick\": \"SR CABEÇA DE PATATA\",\n  \"classe\": \"BARDO\",\n  \"level\": 5,\n  \"forca\": 2,\n  \"defesa\": 8\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8090/personagens",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"personagens"
+					]
+				},
+				"description": "Cria um personagem com atributos validos"
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Personagem Inválido +10 atrib",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Angelo\",\r\n  \"nick\": \"zaNe\",\r\n  \"classe\": \"ARQUEIRO\",\r\n  \"level\": 5,\r\n  \"forca\": 4,\r\n  \"defesa\": 8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/personagens",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"personagens"
+					]
+				},
+				"description": "Cria um personagem inválido, ou seja, onde força e defsa somam mais do que 10"
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Arma Válida",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Espada\",\n  \"tipo\": \"ARMA\",\n  \"forca\": 6,\n  \"defesa\": 0\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8090/itens/personagem/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"itens",
+						"personagem",
+						"1"
+					]
+				},
+				"description": "Cria um arma valida"
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Arma Inválida(F6 e D1)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Arco\",\n  \"tipo\": \"ARMA\",\n  \"forca\": 6,\n  \"defesa\": 2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8090/itens/personagem/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"itens",
+						"personagem",
+						"1"
+					]
+				},
+				"description": "Cria uma arma invalida(defesa maior que 0)"
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Amuleto Válido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Amuleto Top\",\n  \"tipo\": \"AMULETO\",\n  \"forca\": 5,\n  \"defesa\": 3\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8090/itens/personagem/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"itens",
+						"personagem",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Amuleto Invalido (+1)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Amuleto Mais Top\",\n  \"tipo\": \"AMULETO\",\n  \"forca\": 5,\n  \"defesa\": 3\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8090/itens/personagem/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"itens",
+						"personagem",
+						"1"
+					]
+				},
+				"description": "tenta criar mais um amuleto pra um usuario que ja tem amuleto, resultando em um erro"
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Todos os Personagens",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/personagens",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"personagens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Nickname do Personagem",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nick\": \"Mr Potato Head\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/personagens/1/nick",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"personagens",
+						"1",
+						"nick"
+					]
+				},
+				"description": "Atualiza o apelido/nick/nome de aventura"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Personagem por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/personagens/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"personagens",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Status Total (Força + Defesa)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/personagens/1/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"personagens",
+						"1",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Todos os Itens",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/itens",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"itens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Item por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/itens/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"itens",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Itens por Personagem",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/itens/personagem/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"itens",
+						"personagem",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Amuleto do Personagem",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/itens/personagem/1/amuleto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"itens",
+						"personagem",
+						"1",
+						"amuleto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Personagem",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/personagens/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"personagens",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Item por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/itens/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"itens",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
