@@ -1,0 +1,25 @@
+POST USUARIO
+
+{
+  "name": "nomePersonagem",
+  "nick": "nomeAventureiro",
+  "classe": "ARQUEIRO",
+  "level": 5,
+  "forca": 2,
+  "defesa": 8
+}
+
+POST ITEM
+
+{
+  "nome": "Espada",
+  "tipo": "ARMA",
+  "forca": 7,
+  "defesa": 0
+}
+
+PUT APELIDO
+
+{
+  "nick": "novoNomeAventureiro"
+}
