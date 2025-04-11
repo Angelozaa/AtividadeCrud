@@ -9,4 +9,6 @@ Criar sistema de gerenciamento para um jogo de RPG (Role-Playing Game). O sistem
 
 #Testes
 
-Testes foram feitos no postman, utilizando do arquivo presente no repositorio para teste
+http://localhost:8090/swagger-ui/index.html#
+
+
